@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Repair Ultimate Encyclopedia</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #020917;
+  --bg-panel: #0b1628;
+  --bg-card: #0f1f3d;
+  --bg-card2: #132240;
+  --accent: #00d4ff;
+  --accent2: #3b82f6;
+  --accent3: #f59e0b;
+  --accent-glow: rgba(0,212,255,0.15);
+  --text: #e2e8f0;
+  --text-muted: #7a92b0;
+  --border: rgba(0,212,255,0.12);
+  --border-strong: rgba(0,212,255,0.3);
+  --red: #ef4444;
+  --green: #22c55e;
+  --yellow: #eab308;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Cairo', 'Tajawal', Tahoma, sans-serif;
+  background: var(--bg-deep);
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: relative;
+  padding: 80px 20px 60px;
+  text-align: center;
+  background: linear-gradient(160deg, #040d20 0%, #071630 50%, #020917 100%);
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 300px;
+  background: radial-gradient(ellipse, rgba(0,212,255,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.header-badge {
+  display: inline-block;
+  background: rgba(0,212,255,0.1);
+  border: 1px solid var(--border-strong);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 16px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+header h1 span { color: var(--accent); }
+
+header p {
+  color: var(--text-muted);
+  font-size: clamp(13px, 2vw, 16px);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.header-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+.stat-item {
+  text-align: center;
+}
+.stat-num {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--accent);
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(7,16,36,0.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+  overflow-x: auto;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  min-width: max-content;
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 16px 18px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+nav a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background: rgba(0,212,255,0.05);
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 70px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.section-icon {
+  width: 48px; height: 48px;
+  background: var(--accent-glow);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.section-header h2 {
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 900;
+  color: #fff;
+}
+.section-header h2 span { color: var(--accent); }
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 16px;
+  transition: border-color 0.3s;
+}
+.card:hover {
+  border-color: var(--border-strong);
+}
+
+.card h3 {
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card p {
+  color: var(--text-muted);
+  line-height: 1.9;
+}
+
+/* ===== GRID LAYOUTS ===== */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .header-stats { gap: 24px; }
+}
+
+/* ===== LISTS ===== */
+.check-list {
+  list-style: none;
+  padding: 0;
+}
+.check-list li {
+  padding: 8px 0;
+  color: var(--text);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 14px;
+}
+.check-list li:last-child { border-bottom: none; }
+.check-list li::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+/* ===== WORKFLOW STEPS ===== */
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+.steps::before {
+  content: '';
+  position: absolute;
+  right: 19px;
+  top: 24px; bottom: 24px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 0;
+}
+.step-num {
+  width: 40px; height: 40px;
+  background: var(--bg-card2);
+  border: 1.5px solid var(--border-strong);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--accent);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.step-content {
+  flex: 1;
+  padding-top: 8px;
+}
+.step-content strong {
+  display: block;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+}
+.step-content span {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* ===== FAULT MATRIX ===== */
+.fault-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.fault-item {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  border-right: 3px solid var(--accent2);
+  transition: all 0.25s;
+}
+.fault-item:hover {
+  border-color: var(--border-strong);
+  border-right-color: var(--accent);
+  transform: translateY(-2px);
+}
+.fault-name {
+  font-size: 15px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.fault-cause {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.fault-cause span {
+  display: inline-block;
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(59,130,246,0.25);
+  color: #93c5fd;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin: 2px 2px;
+}
+
+/* ===== CURRENT TABLE ===== */
+.current-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.current-table th {
+  background: rgba(0,212,255,0.08);
+  color: var(--accent);
+  padding: 12px 16px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+}
+.current-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 14px;
+}
+.current-table tr:last-child td { border-bottom: none; }
+.current-table tr:hover td { background: rgba(255,255,255,0.02); }
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.badge-ok { background: rgba(34,197,94,0.12); color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
+.badge-warn { background: rgba(234,179,8,0.12); color: var(--yellow); border: 1px solid rgba(234,179,8,0.25); }
+.badge-danger { background: rgba(239,68,68,0.12); color: var(--red); border: 1px solid rgba(239,68,68,0.25); }
+.badge-info { background: rgba(0,212,255,0.1); color: var(--accent); border: 1px solid var(--border-strong); }
+
+/* ===== TOOLS GRID ===== */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+.tool-card {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+  transition: all 0.25s;
+}
+.tool-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+}
+.tool-icon { font-size: 28px; margin-bottom: 10px; }
+.tool-name { font-size: 14px; font-weight: 700; color: #fff; }
+.tool-desc { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+/* ===== SOFTWARE TOOLS ===== */
+.sw-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+.sw-item {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  transition: all 0.2s;
+}
+.sw-item:hover {
+  border-color: var(--border-strong);
+  color: var(--accent);
+}
+.sw-dot {
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ===== ALERT BOXES ===== */
+.alert {
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-size: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.alert-danger {
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.25);
+  color: #fca5a5;
+}
+.alert-tip {
+  background: rgba(0,212,255,0.07);
+  border: 1px solid var(--border-strong);
+  color: var(--accent);
+}
+
+/* ===== GOLDEN RULE ===== */
+.golden-rule {
+  background: linear-gradient(135deg, #071836, #091f40);
+  border: 1px solid rgba(245,158,11,0.3);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 30px;
+}
+.golden-rule::before {
+  content: '';
+  position: absolute;
+  top: -40px; left: 50%;
+  transform: translateX(-50%);
+  width: 200px; height: 100px;
+  background: radial-gradient(ellipse, rgba(245,158,11,0.08), transparent);
+}
+.golden-title {
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--accent3);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.golden-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.g-step {
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.25);
+  color: var(--accent3);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.g-arrow { color: var(--text-muted); font-size: 16px; }
+
+/* ===== COMPONENT DIAGRAM ===== */
+.circuit-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+.cf-item {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+}
+.cf-arrow {
+  color: var(--accent);
+  font-size: 18px;
+  padding: 0 4px;
+  font-weight: 900;
+}
+
+/* ===== SEPARATOR ===== */
+.sep {
+  height: 1px;
+  background: linear-gradient(to left, transparent, var(--border), transparent);
+  margin: 0;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #020917;
+  border-top: 1px solid var(--border);
+  padding: 40px 20px;
+  text-align: center;
+}
+footer p { color: var(--text-muted); font-size: 14px; }
+footer strong { color: var(--accent); }
+
+/* ===== ABOUT SECTION ===== */
+@keyframes spin-ring {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes spin-ring-rev {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,255,0); }
+  50%       { box-shadow: 0 0 40px 12px rgba(0,212,255,0.18); }
+}
+@keyframes float-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes dot-orbit {
+  from { transform: rotate(var(--start)) translateX(80px) rotate(calc(-1 * var(--start))); }
+  to   { transform: rotate(calc(var(--start) + 360deg)) translateX(80px) rotate(calc(-1 * (var(--start) + 360deg))); }
+}
+@keyframes badge-pop {
+  0%   { transform: scale(0.7); opacity: 0; }
+  70%  { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: float-in 0.8s ease both;
+}
+
+.avatar-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+}
+
+/* spinning dashed outer ring */
+.avatar-container::before {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 2px dashed rgba(0,212,255,0.35);
+  animation: spin-ring 8s linear infinite;
+}
+
+/* spinning solid inner ring */
+.avatar-container::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-top-color: var(--accent);
+  border-right-color: rgba(0,212,255,0.3);
+  animation: spin-ring-rev 4s linear infinite;
+}
+
+.avatar-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  display: block;
+  animation: pulse-glow 3s ease-in-out infinite;
+  background: var(--bg-card2);
+  overflow: hidden;
+}
+
+/* placeholder SVG face */
+.avatar-placeholder {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #0f2a50, #1a3a6a);
+  border: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse-glow 3s ease-in-out infinite;
+  overflow: hidden;
+  position: relative;
+}
+
+/* orbiting dots */
+.orbit-dot {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  top: 50%; left: 50%;
+  margin: -4px 0 0 -4px;
+  animation: dot-orbit 4s linear infinite;
+  opacity: 0.7;
+}
+.orbit-dot:nth-child(1) { --start: 0deg;   animation-delay: 0s; }
+.orbit-dot:nth-child(2) { --start: 120deg; animation-delay: -1.33s; background: var(--accent3); }
+.orbit-dot:nth-child(3) { --start: 240deg; animation-delay: -2.66s; background: #a78bfa; }
+
+.about-info {
+  flex: 1;
+  min-width: 260px;
+}
+
+.about-name {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.about-name span { color: var(--accent); }
+
+.about-title {
+  font-size: 14px;
+  color: var(--accent3);
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.about-bio {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 24px;
+}
+
+.about-badges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.about-badge {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: badge-pop 0.5s ease both;
+}
+.about-badge:nth-child(1) { animation-delay: 0.1s; }
+.about-badge:nth-child(2) { animation-delay: 0.2s; }
+.about-badge:nth-child(3) { animation-delay: 0.3s; }
+.about-badge:nth-child(4) { animation-delay: 0.4s; }
+.about-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+
+/* ===== SCROLL BAR ===== */
+::-webkit-scrollbar { width: 6px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.2); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-badge">Encyclopedia of phone repair</div>
+  <h1>Mobile Repair<br><span>Beta version</span></h1>
+  <p>دليل لصيانة الهواتف — سوفت وير · تفليش · هاردوير · تحليل أعطال · سحبات</p>
+  <div class="header-stats">
+    <div class="stat-item">
+      <div class="stat-num">8</div>
+      <div class="stat-label">أقسام متكاملة</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">مصفوفة أعطال</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">منهج علمي</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Pro</div>
+      <div class="stat-label">مستوى احترافي</div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#intro">📌 المقدمة</a>
+    <a href="#workflow">🧠 المنهج</a>
+    <a href="#software">💾 السوفت وير</a>
+    <a href="#flash">⚡ التفليش</a>
+    <a href="#hardware">🔧 الهاردوير</a>
+    <a href="#current">📊 السحبات</a>
+    <a href="#monster">💀 المستوى الاحترافي</a>
+    <a href="#tools">🛠 الأدوات</a>
+    <a href="#about">👤 عن المهندس</a>
+  </div>
+</nav>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="section-header">
+    <div class="section-icon">📌</div>
+    <h2>مقدمة <span>احترافية</span></h2>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>🎯 الهدف</h3>
+      <p>هذا الموقع هو نظام تدريب كامل لفنيي صيانة الهواتف، يعتمد على التحليل العلمي وليس الحفظ. الهدف هو بناء عقل تشخيصي منهجي قادر على حل أي عطل بأسلوب منطقي.</p>
+    </div>
+    <div class="card">
+      <h3>🏆 القاعدة الذهبية</h3>
+      <div class="alert alert-tip">
+        <span>⚡</span>
+        <strong>عرض → قياس → تحليل → حل</strong>
+      </div>
+      <p style="margin-top:12px; font-size:13px; color:var(--text-muted)">لا تبدأ الإصلاح قبل أن تفهم المشكلة كاملاً. القياس قبل الإصلاح دائماً.</p>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- WORKFLOW -->
+<section id="workflow">
+  <div class="section-header">
+    <div class="section-icon">🧠</div>
+    <h2>منهج الفني <span>المحترف</span></h2>
+  </div>
+  <div class="card">
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>جمع المعلومات</strong>
+          <span>سؤال العميل عن العطل وتاريخ الجهاز والمشاكل السابقة</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>تحديد نوع المشكلة</strong>
+          <span>سوفت وير أم هاردوير؟ تحديد المسار الصحيح للتشخيص</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>الفحص البصري</strong>
+          <span>فحص الكابلات، البوردة، الرطوبة، الحرق، القطع المكسورة</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>القياس الكهربائي</strong>
+          <span>قياس الجهد، المقاومة، التيار — بالمولتيميتر وباور سبلاي</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <strong>تحليل السحبات</strong>
+          <span>قراءة السلوك الكهربائي للجهاز عند التشغيل</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <strong>تحديد الدائرة</strong>
+          <span>استخدام المخطط والداتا شيت لعزل القطعة المسؤولة</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">7</div>
+        <div class="step-content">
+          <strong>تنفيذ الإصلاح</strong>
+          <span>تغيير القطعة، لحام، ريبول، أو تدخل سوفت وير</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">8</div>
+        <div class="step-content">
+          <strong>الاختبار النهائي</strong>
+          <span>التحقق من جميع الوظائف قبل تسليم الجهاز للعميل</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- SOFTWARE -->
+<section id="software">
+  <div class="section-header">
+    <div class="section-icon">💾</div>
+    <h2>السوفت <span>وير</span></h2>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>⚠️ أهم الأعطال</h3>
+      <ul class="check-list">
+        <li><span><strong>Bootloop</strong> — الجهاز يعيد التشغيل بشكل متكرر</span></li>
+        <li><span><strong>Stuck Logo</strong> — يتوقف عند شعار الشركة</span></li>
+        <li><span><strong>FRP Lock</strong> — قفل حساب Google بعد الفورمات</span></li>
+        <li><span><strong>Firmware Corruption</strong> — تلف في ملفات النظام</span></li>
+        <li><span><strong>No Boot</strong> — لا يصل لمرحلة الإقلاع</span></li>
+        <li><span><strong>Baseband Unknown</strong> — مشكلة في ملفات الاتصال</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🛠 أدوات السوفت وير</h3>
+      <div class="sw-grid">
+        <div class="sw-item"><div class="sw-dot"></div>SP Flash Tool</div>
+        <div class="sw-item"><div class="sw-dot"></div>Odin</div>
+        <div class="sw-item"><div class="sw-dot"></div>QFIL</div>
+        <div class="sw-item"><div class="sw-dot"></div>ADB & Fastboot</div>
+        <div class="sw-item"><div class="sw-dot"></div>3uTools</div>
+        <div class="sw-item"><div class="sw-dot"></div>Infinity Box</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- FLASH -->
+<section id="flash">
+  <div class="section-header">
+    <div class="section-icon">⚡</div>
+    <h2>التفليش <span>الاحترافي</span></h2>
+  </div>
+  <div class="card">
+    <h3>📋 خطوات التفليش الصحيح</h3>
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>تحديد المعالج</strong>
+          <span>Qualcomm / MediaTek / Exynos / Apple — لكل معالج أداة مختلفة</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>تحميل الروم الصحيح</strong>
+          <span>رقم الموديل بالضبط + رقم الفيرموير + المنطقة</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>تثبيت التعريفات</strong>
+          <span>تعريفات ADB أو تعريفات الجهاز حسب نوع المعالج</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>الدخول لوضع التفليش</strong>
+          <span>Download Mode أو EDL Mode أو Recovery</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <strong>بدء التفليش</strong>
+          <span>مراقبة التقدم والتأكد من عدم قطع الكابل</span>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <strong>إعادة التشغيل والاختبار</strong>
+          <span>أول تشغيل بعد التفليش قد يأخذ وقتاً — لا تقطعه</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="alert alert-danger">
+    <span>⛔</span>
+    <span><strong>تحذير:</strong> لا تقاطع عملية التفليش أبداً — قد يتحول الجهاز لـ Brick غير قابل للإصلاح.</span>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- HARDWARE -->
+<section id="hardware">
+  <div class="section-header">
+    <div class="section-icon">🔧</div>
+    <h2>الهارد <span>وير</span></h2>
+  </div>
+
+  <div class="card" style="margin-bottom:16px">
+    <h3>🏗 دائرة الإقلاع</h3>
+    <div class="circuit-flow">
+      <div class="cf-item">🔋 Battery</div>
+      <div class="cf-arrow">→</div>
+      <div class="cf-item">PMIC</div>
+      <div class="cf-arrow">→</div>
+      <div class="cf-item">CPU</div>
+      <div class="cf-arrow">→</div>
+      <div class="cf-item">Boot ROM</div>
+      <div class="cf-arrow">→</div>
+      <div class="cf-item">OS System</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>🔩 مكونات البوردة الرئيسية</h3>
+      <ul class="check-list">
+        <li><span><strong>CPU / SoC</strong> — المعالج الرئيسي</span></li>
+        <li><span><strong>RAM</strong> — الذاكرة العشوائية</span></li>
+        <li><span><strong>PMIC</strong> — دائرة إدارة الطاقة</span></li>
+        <li><span><strong>IC Power</strong> — ريجيليتور الطاقة</span></li>
+        <li><span><strong>IC Charging</strong> — دائرة الشحن</span></li>
+        <li><span><strong>eMMC / UFS</strong> — التخزين الداخلي</span></li>
+        <li><span><strong>RF Transceiver</strong> — دائرة الاتصال</span></li>
+        <li><span><strong>Baseband CPU</strong> — معالج الشبكة</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🔍 خطوات التشخيص</h3>
+      <ul class="check-list">
+        <li><span>الفحص البصري بالميكروسكوب</span></li>
+        <li><span>قياس فولت VBAT</span></li>
+        <li><span>اختبار الشورت على الخطوط الرئيسية</span></li>
+        <li><span>توصيل باور سبلاي ومراقبة السحب</span></li>
+        <li><span>الرجوع للمخطط (Schematic)</span></li>
+        <li><span>تحديد IC المسؤول عن العطل</span></li>
+        <li><span>اتخاذ قرار الإصلاح</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- CURRENT -->
+<section id="current">
+  <div class="section-header">
+    <div class="section-icon">📊</div>
+    <h2>تحليل <span>السحبات</span></h2>
+  </div>
+  <div class="card">
+    <h3>📈 جدول قراءة السحبات</h3>
+    <div style="overflow-x:auto">
+      <table class="current-table">
+        <thead>
+          <tr>
+            <th>السحب (Ampere)</th>
+            <th>الحالة</th>
+            <th>التفسير</th>
+            <th>الإجراء</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>0.00A</strong></td>
+            <td><span class="badge badge-danger">خطر</span></td>
+            <td>لا يوجد تغذية أو شورت تام</td>
+            <td>فحص VBAT والشورت</td>
+          </tr>
+          <tr>
+            <td><strong>0.02A</strong></td>
+            <td><span class="badge badge-info">وضع الاستعداد</span></td>
+            <td>الجهاز في حالة Sleep أو Standby</td>
+            <td>محاولة التشغيل</td>
+          </tr>
+          <tr>
+            <td><strong>0.10 – 0.30A</strong></td>
+            <td><span class="badge badge-ok">طبيعي</span></td>
+            <td>الجهاز يحاول الإقلاع</td>
+            <td>انتظر ومراقبة</td>
+          </tr>
+          <tr>
+            <td><strong>0.30 – 0.60A</strong></td>
+            <td><span class="badge badge-ok">شغال</span></td>
+            <td>الجهاز يعمل بشكل طبيعي</td>
+            <td>لا إجراء</td>
+          </tr>
+          <tr>
+            <td><strong>0.60 – 0.99A</strong></td>
+            <td><span class="badge badge-warn">تحذير</span></td>
+            <td>استهلاك مرتفع — مشكلة محتملة</td>
+            <td>مراقبة الحرارة</td>
+          </tr>
+          <tr>
+            <td><strong>1.00A+</strong></td>
+            <td><span class="badge badge-danger">شورت</span></td>
+            <td>اتصال مباشر بين الطاقة والأرضي</td>
+            <td>إيقاف فوري + تشخيص</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert alert-tip" style="margin-top:14px">
+      <span>💡</span>
+      <span><strong>قاعدة:</strong> السحب هو لغة الجهاز — تعلّم قراءته وستوفر ساعات من التشخيص.</span>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- MONSTER LEVEL -->
+<section id="monster">
+  <div class="section-header">
+    <div class="section-icon">💀</div>
+    <h2>المستوى <span>الاحترافي</span></h2>
+  </div>
+
+  <div class="card" style="margin-bottom:16px">
+    <h3>🧠 التفكير الاحترافي</h3>
+    <p>الفني المحترف لا يصلح العطل مباشرة — بل يعزل الدائرة أولاً، يحلل السلوك الكهربائي، ثم يقرر. <strong style="color:var(--accent)">العجلة في الصيانة تضاعف التكلفة.</strong></p>
+  </div>
+
+  <div class="fault-matrix" style="margin-bottom:16px">
+    <div class="fault-item">
+      <div class="fault-name">No Power</div>
+      <div class="fault-cause">
+        <span>PMIC</span>
+        <span>VBAT</span>
+        <span>Short</span>
+        <span>Power Button</span>
+      </div>
+    </div>
+    <div class="fault-item">
+      <div class="fault-name">No Charging</div>
+      <div class="fault-cause">
+        <span>IC Charging</span>
+        <span>USB Port</span>
+        <span>Fuse</span>
+        <span>VBUS</span>
+      </div>
+    </div>
+    <div class="fault-item">
+      <div class="fault-name">Bootloop</div>
+      <div class="fault-cause">
+        <span>Software</span>
+        <span>eMMC/UFS</span>
+        <span>Baseband</span>
+      </div>
+    </div>
+    <div class="fault-item">
+      <div class="fault-name">No Display</div>
+      <div class="fault-cause">
+        <span>Backlight IC</span>
+        <span>Display IC</span>
+        <span>Cable</span>
+        <span>Screen</span>
+      </div>
+    </div>
+    <div class="fault-item">
+      <div class="fault-name">No Network</div>
+      <div class="fault-cause">
+        <span>RF IC</span>
+        <span>Baseband</span>
+        <span>Antenna</span>
+        <span>SIM Slot</span>
+      </div>
+    </div>
+    <div class="fault-item">
+      <div class="fault-name">No Sound</div>
+      <div class="fault-cause">
+        <span>Audio IC</span>
+        <span>Speaker</span>
+        <span>Mic</span>
+        <span>Codec</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>⚡ تحليل No Power</h3>
+      <ul class="check-list">
+        <li><span>فحص جهد VBAT عند الكانيكتور</span></li>
+        <li><span>قياس شورت على خط الطاقة الرئيسي</span></li>
+        <li><span>توصيل DC Supply ومراقبة السحب</span></li>
+        <li><span>تحديد IC المسبب بالمخطط</span></li>
+        <li><span>قياس خط POWER_ON من زر التشغيل</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🔋 تحليل الشحن</h3>
+      <ul class="check-list">
+        <li><span>فحص سوكيت USB بصرياً</span></li>
+        <li><span>قياس VBUS بعد الكونيكتور</span></li>
+        <li><span>فحص الفيوز (Fuse)</span></li>
+        <li><span>اختبار Charging IC بالمخطط</span></li>
+        <li><span>التأكد من خط VBUS_CHG</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <h3>🚫 الأخطاء القاتلة</h3>
+    <div class="alert alert-danger">
+      <span>⛔</span>
+      <span>تغيير IC قبل التأكد من القياس — قد يتلف المكونات المجاورة</span>
+    </div>
+    <div class="alert alert-danger">
+      <span>⛔</span>
+      <span>محاولة تفليش جهاز عطله هاردوير — يضيع الوقت ولا يحل المشكلة</span>
+    </div>
+    <div class="alert alert-danger">
+      <span>⛔</span>
+      <span>تجاهل قراءة السحبات والبدء مباشرة في الإصلاح</span>
+    </div>
+    <div class="alert alert-danger">
+      <span>⛔</span>
+      <span>العمل بدون مخطط (Schematic) — العمل العشوائي يدمر البوردة</span>
+    </div>
+  </div>
+
+  <div class="golden-rule">
+    <div class="golden-title">⚡ طريقة الحل الذهبية</div>
+    <div class="golden-steps">
+      <div class="g-step">تشخيص</div>
+      <div class="g-arrow">→</div>
+      <div class="g-step">قياس</div>
+      <div class="g-arrow">→</div>
+      <div class="g-step">تحديد</div>
+      <div class="g-arrow">→</div>
+      <div class="g-step">إصلاح</div>
+      <div class="g-arrow">→</div>
+      <div class="g-step">اختبار</div>
+    </div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="section-header">
+    <div class="section-icon">🛠</div>
+    <h2>الأدوات <span>الأساسية</span></h2>
+  </div>
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-icon">📏</div>
+      <div class="tool-name">Multimeter</div>
+      <div class="tool-desc">قياس الجهد والمقاومة والتيار</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🔌</div>
+      <div class="tool-name">DC Power Supply</div>
+      <div class="tool-desc">مراقبة السحب وتغذية البوردة</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">💨</div>
+      <div class="tool-name">Hot Air Station</div>
+      <div class="tool-desc">رفع وتركيب ICs بأمان</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🔬</div>
+      <div class="tool-name">Microscope</div>
+      <div class="tool-desc">الفحص البصري الدقيق للبوردة</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">📐</div>
+      <div class="tool-name">ZXW Tools</div>
+      <div class="tool-desc">مخططات البوردة الاحترافية</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">⚡</div>
+      <div class="tool-name">Soldering Iron</div>
+      <div class="tool-desc">لحام القطع الدقيقة</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🧪</div>
+      <div class="tool-name">Flux</div>
+      <div class="tool-desc">تسهيل عملية اللحام</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">💻</div>
+      <div class="tool-name">Octoplus Box</div>
+      <div class="tool-desc">بوكس تفليش متعدد الماركات</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="sep"></div>
+<section id="about">
+  <div class="section-header">
+    <div class="section-icon">👤</div>
+    <h2>عن <span>المهندس</span></h2>
+  </div>
+
+  <div class="card" style="padding: 40px 36px;">
+    <div class="about-wrapper">
+
+      <!-- AVATAR -->
+      <div class="avatar-container">
+       <img class="avatar-img" src="photo_6023681063185485267_w.jpg" alt="Sohaib Ayman">
+      </div>
+
+      <!-- INFO -->
+      <div class="about-info">
+        <div class="about-title">MOBILE REPAIR ENGINEER</div>
+        <div class="about-name">المهندس<br><span>Sohaib Ayman</span></div>
+        <p class="about-bio">
+          متخصص في صيانة الهواتف الذكية — هاردوير وسوفت متكامل.
+        </p>
+        <div class="about-badges">
+          <div class="about-badge"><div class="dot"></div>Hardware Expert</div>
+          <div class="about-badge"><div class="dot"></div>Software Specialist</div>
+          <div class="about-badge"><div class="dot"></div>Board Repair Pro</div>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="margin-bottom:8px; color: var(--accent); font-size:18px; font-weight:900">Mobile Repair Encyclopedia</p>
+  <p>© جميع الحقوق محفوظة — <strong>المهندس Sohaib Ayman</strong></p>
+  <p style="margin-top:8px; font-size:12px; color:#3a5070">Professional Mobile Repair Training System</p>
+</footer>
+
+</body>
+</html>
